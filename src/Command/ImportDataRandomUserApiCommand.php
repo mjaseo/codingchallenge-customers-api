@@ -18,13 +18,13 @@ class ImportDataRandomUserApiCommand extends Command
     private $randomUserApiClient;
 
     /** @var RandomUserApiDataManager */
-    private $dataImportManager;
+    private $randomUserApiDataManager;
 
-    public function __construct(RandomUserApiClient $randomUserApiClient, RandomUserApiDataManager $dataImportManager)
+    public function __construct(RandomUserApiClient $randomUserApiClient, RandomUserApiDataManager $randomUserApiDataManager)
     {
         $this->randomUserApiClient = $randomUserApiClient;
 
-        $this->dataImportManager = $dataImportManager;
+        $this->randomUserApiDataManager = $randomUserApiDataManager;
 
         parent::__construct();
     }
@@ -51,9 +51,9 @@ class ImportDataRandomUserApiCommand extends Command
         $no_of_results = $input->getArgument('number_of_results');
         $nationality = $input->getArgument('nationality');
 
-        $this->dataImportManager->persistRandomUserApi($no_of_results, $nationality);
+        $this->randomUserApiDataManager->persistRandomUserApi($no_of_results, $nationality);
 
-        $updatedUsers = $this->dataImportManager->usersUpdated();
+        $updatedUsers = $this->randomUserApiDataManager->usersUpdated();
         if(count($updatedUsers) > 0) {
             $output->writeln('Updated Users: ' . count($updatedUsers));
             array_map(function($user) use ($output) {
@@ -61,7 +61,7 @@ class ImportDataRandomUserApiCommand extends Command
             }, $updatedUsers);
         }
 
-        $createdUsers = $this->dataImportManager->usersCreated();
+        $createdUsers = $this->randomUserApiDataManager->usersCreated();
         if(count($createdUsers) > 0) {
             $output->writeln('Created Users: ' . count($createdUsers));
             array_map(function($user) use ($output) {
