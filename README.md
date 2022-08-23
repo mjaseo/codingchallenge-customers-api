@@ -1,4 +1,5 @@
-Please make sure to update `composer`. Commands below are tested and running with `composer -V`
+Please make sure to update `composer`. 
+Commands below are tested and running with composer version:`
 
     Composer version 2.4.1 2022-08-20 11:44:50
 
