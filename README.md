@@ -49,6 +49,4 @@ And to fetch customer record:
 To run test, please run the code below:
 
     symfony php bin/phpunit tests/StockTest.php
-
-    symfony console app:import-data-random-user-api 10
     
