@@ -43,7 +43,7 @@ class StockTest extends KernelTestCase
         $this->entityManager->persist($customer);
 
         $this->entityManager->flush();
-dd($customer);
+
         $this->assertEquals('Karl-Dieter Schwenke', $customer->getFullName());
         $this->assertEquals(md5('byebye'), $customer->getPassword());
         $this->assertEquals('karl-dieter.schwenke@example.com', $customer->getEmail());
