@@ -30,6 +30,8 @@ Run the IMPORT COMMAND by default (to import 100 records with AU nationaliy)
     symfony console app:import-data-random-user-api
 
 OR to import just 10 records:
+
+    symfony console app:import-data-random-user-api 10    
 ***
 
 After running the import command above, our Customer API should be ready.
